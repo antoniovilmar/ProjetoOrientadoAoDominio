@@ -59,7 +59,7 @@ public class Cliente {
 
 	public ClienteBuilder comFiliacao(String nomePai, String nomeMae) {
 	    this.cliente.nomePai = nomePai;
-	    this.cliente.nomePai = nomeMae;
+	    this.cliente.nomeMae = nomeMae;
 	    return this;
 	}
 

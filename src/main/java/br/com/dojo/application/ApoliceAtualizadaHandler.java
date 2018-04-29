@@ -8,13 +8,13 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AtualizacaoFaturaHandler {
+public class ApoliceAtualizadaHandler {
 
   private FaturaRepository faturaRepository;
 
 
   @Autowired
-  public AtualizacaoFaturaHandler(FaturaRepository faturaRepository) {
+  public ApoliceAtualizadaHandler(FaturaRepository faturaRepository) {
     this.faturaRepository = faturaRepository;
   }
 

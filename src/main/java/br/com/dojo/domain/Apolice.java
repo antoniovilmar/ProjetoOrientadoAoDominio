@@ -2,7 +2,6 @@ package br.com.dojo.domain;
 
 import static java.util.Objects.isNull;
 
-import br.com.dojo.application.CriacaoFaturaHandler;
 import br.com.dojo.domain.event.ApoliceAtualizadaEvent;
 import br.com.dojo.domain.event.ApoliceCriadaEvent;
 import java.io.Serializable;

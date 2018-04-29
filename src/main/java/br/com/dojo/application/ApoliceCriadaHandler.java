@@ -9,12 +9,12 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CriacaoFaturaHandler {
+public class ApoliceCriadaHandler {
 
   private FaturaRepository faturaRepository;
 
   @Autowired
-  public CriacaoFaturaHandler(ApoliceRepository apoliceRepository,
+  public ApoliceCriadaHandler(ApoliceRepository apoliceRepository,
       FaturaRepository faturaRepository) {
     this.faturaRepository = faturaRepository;
   }

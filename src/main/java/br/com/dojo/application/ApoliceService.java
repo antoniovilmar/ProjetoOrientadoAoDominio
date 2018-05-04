@@ -5,6 +5,8 @@ import br.com.dojo.application.dto.DependenteDto;
 import br.com.dojo.domain.Apolice;
 import br.com.dojo.domain.Cpf;
 import br.com.dojo.domain.Dependente;
+import br.com.dojo.domain.IApoliceRepository;
+import br.com.dojo.domain.ISeguradoRepository;
 import br.com.dojo.domain.Segurado;
 import br.com.dojo.infra.ApoliceRepository;
 import br.com.dojo.infra.SeguradoRepository;
@@ -14,8 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApoliceService {
 
-  private SeguradoRepository seguradoRepository;
-  private ApoliceRepository apoliceRepository;
+  private ISeguradoRepository seguradoRepository;
+  private IApoliceRepository apoliceRepository;
 
   @Autowired
   public ApoliceService(SeguradoRepository seguradoRepository,
@@ -25,19 +27,19 @@ public class ApoliceService {
   }
 
   public void efetuarSeguro(ApoliceDto apoliceDto) {
-    final Segurado segurado = seguradoRepository.findOne(apoliceDto.getSeguradoId());
+    final Segurado segurado = seguradoRepository.buscar(apoliceDto.getSeguradoId());
     final Apolice apolice = new Apolice(segurado, apoliceDto.getSeguradora(),
         apoliceDto.getCarro());
 
-    apoliceRepository.save(apolice);
+    apoliceRepository.salvar(apolice);
   }
 
   public void adicionarDependente(Integer idApolice, DependenteDto dependenteDto) {
-    final Apolice apolice = apoliceRepository.findOne(idApolice);
+    final Apolice apolice = apoliceRepository.buscar(idApolice);
     final Dependente dependente = new Dependente(dependenteDto.getNome(),
         Cpf.criar(dependenteDto.getCpf()), dependenteDto.getIdade());
     apolice.incluirDependente(dependente);
-    apoliceRepository.save(apolice);
+    apoliceRepository.salvar(apolice);
   }
 
 }

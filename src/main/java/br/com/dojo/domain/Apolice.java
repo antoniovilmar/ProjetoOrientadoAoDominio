@@ -2,7 +2,7 @@ package br.com.dojo.domain;
 
 import static java.util.Objects.isNull;
 
-import br.com.dojo.domain.event.ApoliceAtualizadaEvent;
+import br.com.dojo.domain.event.ApoliceDependenteIncluidoEvent;
 import br.com.dojo.domain.event.ApoliceCriadaEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class Apolice extends AbstractAggregateRoot implements Serializable {
 
     this.dependentes.add(dependente);
     this.registerEvent(
-        new ApoliceAtualizadaEvent(this.numero));
+        new ApoliceDependenteIncluidoEvent(this.numero));
   }
 
   public Segurado getSegurado() {

@@ -6,9 +6,9 @@ import br.com.dojo.domain.Cnh;
 import br.com.dojo.domain.Contato;
 import br.com.dojo.domain.Cpf;
 import br.com.dojo.domain.Fatura;
+import br.com.dojo.domain.IFaturaRepository;
+import br.com.dojo.domain.ISeguradoRepository;
 import br.com.dojo.domain.Segurado;
-import br.com.dojo.infra.FaturaRepository;
-import br.com.dojo.infra.SeguradoRepository;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.Assert;
@@ -29,10 +29,10 @@ public class ApoliceServiceTest {
   private ApoliceService apoliceService;
 
   @Autowired
-  private FaturaRepository faturaRepository;
+  private IFaturaRepository faturaRepository;
 
   @Autowired
-  private SeguradoRepository seguradoRepository;
+  private ISeguradoRepository seguradoRepository;
 
   private Integer seguradoId;
 
@@ -69,7 +69,7 @@ public class ApoliceServiceTest {
                     .criar(telefoneAlternativo, celularPrincipal)))
         .instance();
 
-    seguradoRepository.save(segurado);
+    seguradoRepository.salvar(segurado);
 
     seguradoId = segurado.getId();
 
@@ -83,9 +83,8 @@ public class ApoliceServiceTest {
         seguradora);
 
     apoliceService.efetuarSeguro(apoliceDto);
-    Fatura faturaCriada = faturaRepository.findOne(1);
+    Fatura faturaCriada = faturaRepository.buscar(1);
 
-    Assert.assertNotNull(faturaCriada);
     Assert.assertEquals(BigDecimal.valueOf(1350), faturaCriada.getValorTotal());
   }
 
@@ -99,7 +98,7 @@ public class ApoliceServiceTest {
 
     apoliceService.adicionarDependente(1, new DependenteDto("Antonio", "02315258098", 27));
 
-    Fatura faturaCriada = faturaRepository.findOne(1);
+    Fatura faturaCriada = faturaRepository.buscar(1);
 
     Assert.assertEquals(BigDecimal.valueOf(36450), faturaCriada.getValorTotal());
   }

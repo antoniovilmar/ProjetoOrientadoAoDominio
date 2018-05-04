@@ -1,10 +1,10 @@
 package br.com.dojo.domain.event;
 
-public class ApoliceAtualizadaEvent {
+public class ApoliceDependenteIncluidoEvent {
 
   private Long numeroApolice;
 
-  public ApoliceAtualizadaEvent(Long numeroApolice) {
+  public ApoliceDependenteIncluidoEvent(Long numeroApolice) {
     this.numeroApolice = numeroApolice;
   }
 

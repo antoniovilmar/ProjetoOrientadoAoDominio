@@ -35,7 +35,7 @@ public class SeguroService {
                     .criar(seguradoDto.getTelefoneSecundario(),
                         seguradoDto.getTelefoneSecundario())))
         .instance();
-    seguradoRepository.save(segurado);
+    seguradoRepository.salvar(segurado);
 
   }
 

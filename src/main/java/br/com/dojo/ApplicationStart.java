@@ -11,7 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @ComponentScan(basePackageClasses = ApplicationStart.class)
 @EntityScan(basePackageClasses = {ApplicationStart.class})
-@EnableJpaRepositories(basePackageClasses = {ApplicationStart.class})
+@EnableJpaRepositories(considerNestedRepositories = true, basePackageClasses = {
+    ApplicationStart.class})
 public class ApplicationStart {
 
   public static void main(String[] args) {

@@ -1,6 +1,4 @@
-package br.com.dojo.application;
-
-import org.omg.CORBA.INTERNAL;
+package br.com.dojo.application.dto;
 
 public class DependenteDto {
 

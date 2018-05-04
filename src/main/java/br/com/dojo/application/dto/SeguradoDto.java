@@ -1,6 +1,6 @@
-package br.com.dojo.application;
+package br.com.dojo.application.dto;
 
-public class ApoliceDto {
+public class SeguradoDto {
 
   private String numeroCnh;
   private boolean cnhPermanente;
@@ -14,13 +14,10 @@ public class ApoliceDto {
   private String telefonePrincipal;
   private String celularSecundario;
   private String telefoneSecundario;
-  private String seguradora;
-  private String carro;
 
-  public ApoliceDto(String numeroCnh, boolean cnhPermanente, String nomePai, String nomeMae,
+  public SeguradoDto(String numeroCnh, boolean cnhPermanente, String nomePai, String nomeMae,
       String nome, String endereco, Integer idade, String cpf, String celularPrincipal,
-      String telefonePrincipal, String celularSecundario, String telefoneSecundario,
-      String seguradora, String carro) {
+      String telefonePrincipal, String celularSecundario, String telefoneSecundario) {
     this.numeroCnh = numeroCnh;
     this.cnhPermanente = cnhPermanente;
     this.nomePai = nomePai;
@@ -33,8 +30,6 @@ public class ApoliceDto {
     this.telefonePrincipal = telefonePrincipal;
     this.celularSecundario = celularSecundario;
     this.telefoneSecundario = telefoneSecundario;
-    this.seguradora = seguradora;
-    this.carro = carro;
   }
 
   public String getNumeroCnh() {
@@ -73,10 +68,6 @@ public class ApoliceDto {
     return telefonePrincipal;
   }
 
-  public String getCelularSecundario() {
-    return celularSecundario;
-  }
-
   public String getTelefoneSecundario() {
     return telefoneSecundario;
   }
@@ -85,11 +76,4 @@ public class ApoliceDto {
     return endereco;
   }
 
-  public String getSeguradora() {
-    return seguradora;
-  }
-
-  public String getCarro() {
-    return carro;
-  }
 }

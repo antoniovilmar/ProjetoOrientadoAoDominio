@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FaturaRepository extends JpaRepository<Fatura, Integer> {
 
-  Fatura findFaturaByApoliceId(Integer idApolice);
+  Fatura findFaturaByApoliceNumero(Long numero);
 
 }

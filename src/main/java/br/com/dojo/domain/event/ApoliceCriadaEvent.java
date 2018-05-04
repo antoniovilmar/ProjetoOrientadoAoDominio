@@ -1,17 +1,15 @@
 package br.com.dojo.domain.event;
 
-import br.com.dojo.domain.Apolice;
-
 public class ApoliceCriadaEvent {
 
-  private Apolice apolice;
+  private Long numeroApolice;
 
-  public ApoliceCriadaEvent(Apolice apolice) {
-    this.apolice = apolice;
+  public ApoliceCriadaEvent(Long numeroApolice) {
+    this.numeroApolice = numeroApolice;
   }
 
-  public Apolice getApolice() {
-    return apolice;
+  public Long getNumeroApolice() {
+    return numeroApolice;
   }
 
 }

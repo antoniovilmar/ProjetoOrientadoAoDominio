@@ -21,7 +21,7 @@ public class ApoliceAtualizadaHandler {
   @EventListener
   public void atualizarFatura(ApoliceAtualizadaEvent apoliceAtualizadaEvent) {
     final Fatura fatura = faturaRepository
-        .findFaturaByApoliceId(apoliceAtualizadaEvent.getIdApolice());
+        .findFaturaByApoliceNumero(apoliceAtualizadaEvent.getNumeroApolice());
 
     fatura.calcularValorDependentes();
 

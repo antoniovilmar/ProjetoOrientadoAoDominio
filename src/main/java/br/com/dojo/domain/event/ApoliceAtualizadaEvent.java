@@ -2,13 +2,13 @@ package br.com.dojo.domain.event;
 
 public class ApoliceAtualizadaEvent {
 
-  private Integer idApolice;
+  private Long numeroApolice;
 
-  public ApoliceAtualizadaEvent(Integer idApolice){
-    this.idApolice = idApolice;
+  public ApoliceAtualizadaEvent(Long numeroApolice) {
+    this.numeroApolice = numeroApolice;
   }
 
-  public Integer getIdApolice() {
-    return idApolice;
+  public Long getNumeroApolice() {
+    return numeroApolice;
   }
 }

@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,17 +36,20 @@ public class Apolice extends AbstractAggregateRoot implements Serializable {
 
   private String carro;
 
+  private Long numero;
+
   protected Apolice() {
     this.dependentes = new ArrayList<>();
   }
 
   public Apolice(Segurado segurado, String seguradora, String carro) {
     this();
+    this.numero = new Random().nextLong();
     this.segurado = segurado;
     this.seguradora = seguradora;
     this.carro = carro;
     this.registerEvent(
-        new ApoliceCriadaEvent(this));
+        new ApoliceCriadaEvent(this.numero));
   }
 
   public void incluirDependente(Dependente dependente) {
@@ -55,7 +59,7 @@ public class Apolice extends AbstractAggregateRoot implements Serializable {
 
     this.dependentes.add(dependente);
     this.registerEvent(
-        new ApoliceAtualizadaEvent(this.id));
+        new ApoliceAtualizadaEvent(this.numero));
   }
 
   public Segurado getSegurado() {

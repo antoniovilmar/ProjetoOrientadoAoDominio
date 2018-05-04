@@ -3,7 +3,6 @@ package br.com.dojo.domain;
 import static java.util.Objects.isNull;
 
 import java.math.BigDecimal;
-import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +35,8 @@ public class Fatura {
     calcularValorInicialSeguro();
   }
 
-  protected Fatura(){}
+  protected Fatura() {
+  }
 
   public BigDecimal getValorTotal() {
     return valorTotal.getValor();
@@ -57,11 +57,5 @@ public class Fatura {
       this.valorTotal = this.valorTotal.multiplicar(d.getIdade());
     }));
   }
-
-  private void recalcularValorSeguro(Integer idadeDependente) {
-    if (idadeDependente < 26) {
-      this.valorTotal.somar(BigDecimal.valueOf(1000));
-    }
-  }
-
 }
+
